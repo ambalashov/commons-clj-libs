@@ -15,23 +15,23 @@
 (defn has?
   [cache-key cache-type]
   (let [db (cache-db cache-type)]
-    (cache/has? @db (symbol cache-key))))
+    (cache/has? @db (keyword cache-key))))
 
 (defn pull
   [cache-key cache-type]
   (let [db (cache-db cache-type)]
-    ((symbol cache-key) @db)))
+    ((keyword cache-key) @db)))
 
 (defn push
   [cache-key cache-value cache-type]
   (let [db (cache-db cache-type)]
-    (swap! db cache/miss (symbol cache-key) cache-value))
+    (swap! db cache/miss (keyword cache-key) cache-value))
   cache-value)
 
 (defn delete
   [cache-key cache-type]
   (let [db (cache-db cache-type)]
-    (swap! db cache/evict (symbol cache-key))))
+    (swap! db cache/evict (keyword cache-key))))
 
 (defn hit-or-miss
   [cache-key cache-value cache-type]

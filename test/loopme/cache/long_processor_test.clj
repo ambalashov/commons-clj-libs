@@ -19,7 +19,7 @@
 
   (testing "basic insert to correct cache type"
     (push "long-test-key" "test-value" :long)
-    (is (cache/has? @LONG-CACHE (symbol "long-test-key"))))
+    (is (cache/has? @LONG-CACHE :long-test-key)))
 
   (testing "basic re-insert = new value"
     (is (= "test-value2" (push "long-test-key" "test-value2" :long)))

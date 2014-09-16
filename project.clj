@@ -1,4 +1,4 @@
-(defproject loopme/cache "0.1.1"
+(defproject loopme/cache "0.1.2"
   :description "Loopme cache library."
   :license {:name "MIT license"
             :url "http://opensource.org/licenses/MIT"}

@@ -16,7 +16,7 @@
 
   (testing "basic insert to correct cache type"
     (push "soft-test-key" "test-value" :soft)
-    (is (cache/has? @SOFT-CACHE (symbol "soft-test-key"))))
+    (is (cache/has? @SOFT-CACHE (keyword "soft-test-key"))))
 
   (testing "basic re-insert = new value"
     (is (= "test-value2" (push "soft-test-key" "test-value2" :soft)))

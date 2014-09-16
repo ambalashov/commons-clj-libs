@@ -16,7 +16,7 @@
 
   (testing "basic insert to correct cache type"
     (push "short-test-key" "test-value" :short)
-    (is (cache/has? @SHORT-CACHE (symbol "short-test-key"))))
+    (is (cache/has? @SHORT-CACHE (keyword "short-test-key"))))
 
   (testing "ttl correct check"
     (push "short-test-key" "test-value" :short)
