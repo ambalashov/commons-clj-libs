@@ -1,7 +1,7 @@
-(ns loopme-cache.soft-processor-test
+(ns loopme.cache.soft-processor-test
   (:require [clojure.test :refer :all]
             [clojure.core.cache :as cache]
-            [loopme-cache.processor :refer :all]))
+            [loopme.cache.processor :refer :all]))
 
 (deftest soft-cache
   (testing "default - data not exists"

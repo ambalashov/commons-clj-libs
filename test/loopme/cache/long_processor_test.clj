@@ -1,7 +1,10 @@
-(ns loopme-cache.long-processor-test
+(ns loopme.cache.long-processor-test
   (:require [clojure.test :refer :all]
             [clojure.core.cache :as cache]
-            [loopme-cache.processor :refer :all]))
+            [loopme.cache.processor :refer :all]
+            [loopme.cache.fixure :as fixure]))
+
+(use-fixtures :each fixure/clear)
 
 (deftest long-cache
   (testing "default - data not exists"

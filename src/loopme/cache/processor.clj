@@ -1,4 +1,4 @@
-(ns loopme-cache.processor
+(ns loopme.cache.processor
   (:require [clojure.core.cache :as cache]))
 
 (def SOFT-CACHE (atom (cache/soft-cache-factory {})))
@@ -38,3 +38,16 @@
   (if (has? cache-key cache-type)
     (pull cache-key cache-type)
     (push cache-key cache-value cache-type)))
+
+(defn hit-or-miss-function
+  [cache-key cache-type f]
+  (if (has? cache-key cache-type)
+    (pull cache-key cache-type)
+    (push cache-key (f) cache-type)))
+
+(defn clear-cache
+  [cache-type]
+  (case cache-type
+    :soft  (swap! SOFT-CACHE (fn[c] (cache/soft-cache-factory {})))
+    :long  (swap! LONG-CACHE (fn[c] (cache/ttl-cache-factory {} :ttl 900000)))
+    :short (swap! SHORT-CACHE (fn[c] (cache/ttl-cache-factory {} :ttl 30000)))))

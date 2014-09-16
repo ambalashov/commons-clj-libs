@@ -27,3 +27,9 @@ Icon
 
 *.log
 *.swp
+
+# Idea specific files
+.idea/
+*.iml
+
+.env
